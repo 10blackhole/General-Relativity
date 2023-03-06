@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd,physics}
+\usepackage{tcolorbox}
+\usepackage{marginnote,tensor}
+%~~~~~~~~~ Document setup
+\usepackage[english]{babel} % English formatting
+\usepackage[utf8]{inputenc} % Standard encoding
+\usepackage[a4paper,left=3cm,bottom=3cm]{geometry} % Page formatting
+\usepackage{indentfirst} % Indents the first paragraph
+\usepackage{amsmath} % Maths type package
+\usepackage{bm} % Bold font maths
+\usepackage{graphicx} % Advanced graphics package
+\usepackage[export]{adjustbox} 
+\usepackage{pdflscape} % Make pages landscape
+\usepackage{fancyhdr} % Fancy headers
+\usepackage[colorlinks=true,citecolor=blue,urlcolor=blue,linkcolor=black]{hyperref} % Link colours
+\usepackage{natbib} % Bibliography
+\usepackage{flafter} % Reference any 'float'
+\usepackage[framemethod=tikz]{mdframed} % Box off stuff
+\usepackage{color} % Colour support
+\usepackage{wrapfig} % Text flowing around figures
+\usepackage{lipsum} % Generates meaningless text
+
+
+
+%~~~~~~~~~ Page setup
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Notes on General Relativity}
+%\lfoot{Notes on General Relativity}
+%\rhead{March 2023}
+\rfoot{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newtheorem{example}{Example}[section]
+
+%~~~~~~~~~ Title
+\title{{\LARGE \bf Notes on Spacetime and Geometry by Sean M. Carroll}}
+\author{Diez B. Borja}
+\date{\today}
+%~~~~~~~~~ Document start
+\begin{document}
+
+\pagenumbering{gobble} % keep title page without a number
+\maketitle
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic} % start page numbers again
+\setcounter{page}{1}
+
+%~~~~~~~~~ Document start
+\input{cap-1}
+\end{document}
