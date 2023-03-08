@@ -1,0 +1,224 @@
+\section{Gravitation}
+\subsection{Physics in Curves Spacetime}
+The physics of gravitation falls naturally into two peaces: how the gravitational field influence the behavior of matter, and how matter determines the gravitational field. In Newtonian gravity, this two elements consist of the expression for the acceleration of a body in a gravitational potential $\Phi$,
+\begin{equation}\label{4.1}
+    \vb*{a}=-\nabla\Phi
+\end{equation}
+and Poisson's equation
+\begin{equation*}
+    \nabla^2\Phi=4\pi G\rho
+\end{equation*}
+In general relativity, the analogous statements will describe how the curvature of spacetime acts on matter to manifest itself as gravity, and how energy and momentum influence spacetime to create curvature.
+
+The \textcolor{purple}{Einstein Equivalence Principle (EEP): In small enough regions of spacetime, the laws of physics reduce to those of special relativity; it is impossible to detect the existence of a gravitational fields by means of local experiments}. The EEP arises from idea that gravity is \textit{universal}; it affects all particles in the same way. The identification of spacetime as a curved manifold is supported by the similarity between the undetectability of gravity in local regions and our ability to find locally inertial coordinates ($g_{\hat{\mu}\hat{\nu}}=\eta_{\hat{\mu}\hat{\nu}}, \partial_{\hat{\rho}}g_{\hat{\mu}\hat{\nu}}=0$ at a point $p$) on a manifold.
+
+The \textbf{minimal-coupling principle} generalizes laws of physics. This recipe may be stated as follows:
+\begin{enumerate}
+    \item Take a law of physics, valid in inertial coordinates in flat spacetime.
+    \item Write it in coordinate-invariant (tensorial) form.
+    \item Assert that the resulting law remains true in curved spacetime.
+\end{enumerate}
+
+\begin{tcolorbox}
+As a starightforward example, we can consider the motion of dreely-falling (unaccelerated) particles. In flat space such particles move in straight lines; in equations, this is expressed as the vanishing of the second derivate of the parametrized path $x^\mu(\lambda)$:
+\begin{equation}\label{eq:4.3}
+    \dv[2]{x^\mu}{\lambda}=0
+\end{equation}
+We can use the chain rule to write
+\begin{equation*}
+    \dv[2]{x^\mu}{\lambda}=\dv{x^\nu}{\lambda}\partial_\nu\dv{x^\mu}{\lambda}
+\end{equation*}
+Generalizing this to curved space--simply replace the partial derivative by a covariant one,
+\begin{equation*}
+    \dv{x^\nu}{\lambda}\partial_\nu\dv{x^\mu}{\lambda}\quad \to\quad \dv{x^\nu}{\lambda}\nabla_\nu\dv{x^\mu}{\lambda}=\dv[2]{x^\mu}{\lambda} + \tensor{\Gamma}{^\mu_{\rho\sigma}}\dv{x^\rho}{\lambda}\dv{x^\sigma}{\lambda}
+\end{equation*}
+It is the general-relativistic version of the Newtonian relation (\ref{eq:4.3}) is simply the geodesic equation,
+\begin{equation*}
+    \dv[2]{x^\mu}{\lambda} + \tensor{\Gamma}{^\mu_{\rho\sigma}}\dv{x^\rho}{\lambda}\dv{x^\sigma}{\lambda}=0
+\end{equation*}
+In general relativity, therefore, \textcolor{purple}{free particles move along geodesics}; we have mentioned this before.
+\end{tcolorbox}
+
+\begin{tcolorbox}
+As an evenmore straightforward example, we have the law of energy-momentum conservation in flat spacetime:
+\begin{equation*}
+    \partial_\mu T^{\mu\nu}=0
+\end{equation*}
+The appropriate generalization to curved spacetime:
+\begin{equation*}
+    \nabla_\mu T^{\mu\nu}=0
+\end{equation*}
+\end{tcolorbox}
+
+We define the Newtonian limit by three requirements: the particles are moving slowly (with respect to the speed of light), the gravitational field is weak (so that it can be considered as a perturbation of flat space), and the field is also static (unchanging with time). Let us see what these assumptions do to the geodesic equation. 
+
+\textcolor{purple}{Moving slowly} means that
+\begin{equation*}
+    \dv{x^{i}}{\tau}\ll \dv{t}{\tau}
+\end{equation*}
+so the geodesic equation becomes
+\begin{equation}\label{4.10}
+    \dv[2]{x^\mu}{\tau}+\Gamma^\mu_{00}\left(\dv{t}{\tau}\right)^2=0
+\end{equation}
+Since \textcolor{purple}{the field is static} ($\partial_0 g_{\mu\nu}=0$), the relevant Christoffel symbols $\Gamma^\mu_{00}$ simplify:
+\begin{align*}
+    \Gamma^\mu_{00}&=\frac{1}{2}g^{\mu\lambda}(\partial_0 g_{\lambda 0}+\partial_0 g_{0\lambda} -\partial_\lambda g_{00})\\
+    &=-\frac{1}{2}g^{\mu\lambda}\partial_\lambda g_{00}
+\end{align*}
+Finally, \textcolor{purple}{the weakness of the gravitational field} allows us to decompose the metric into the Minkowski form plus a small perturbation:
+\begin{align}\label{4.12}
+    g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu},\qquad |h_{\mu\nu}|\ll 1
+\end{align}
+From the definition of the inverse metric, $g^{\mu\nu}g_{\nu\sigma}=\delta^\mu_\sigma$, we find that to first order in $h$,
+\begin{equation}\label{4.13}
+    g^{\mu\nu}=\eta^{\mu\nu}-g^{\mu\nu}
+\end{equation}
+We can use the Minkowski metric to raise and lower indices on an object of any definite order on $h$, since the corrections would only contribute at higher orders.
+
+Putting all together, to first order in $h_{\mu\nu}$ we find
+\begin{equation*}
+    \Gamma^\mu_{00}=-\frac{1}{2}\eta^{\mu\lambda}\partial_\lambda h_{00}
+\end{equation*}
+The geodesic equation (\ref{4.10}) is therefore
+\begin{equation}\label{4.15}
+    \dv[2]{x^\mu}{\tau}=\frac{1}{2}\eta^{\mu\lambda}\partial_\lambda h_{00}\left(\dv{t}{\tau}\right)^2
+\end{equation}
+Using $\partial_0 h_{00}=0$, the $\mu=0$ component of this is just
+\begin{equation*}
+    \dv[2]{t}{\tau}=0
+\end{equation*}
+That is, $\dv*{t}{\tau}$ is constant. The spacelike components of (\ref{4.15}),
+\begin{equation*}
+    \dv[2]{x^{i}}{\tau}=\frac{1}{2}\left(\dv{t}{\tau}\right)^2\partial_i h_{00}
+\end{equation*}
+Dividing both sides by $(\dd t/\dd\tau)^2$,
+\begin{equation*}
+    \dv[2]{x^{i}}{t}=\frac{1}{2}\partial_i h_{00}
+\end{equation*}
+This begins to look a great deal like Newton's theory of gravitation. In fact, if we compare this equation to (\ref{4.1}),
+\begin{equation}\label{4.19}
+    h_{00}=-2\Phi
+\end{equation}
+or
+\begin{equation}\label{4.20}
+    g_{00}=-(1+2\Phi)
+\end{equation}
+Therefore, we have shown that the curvature of spacetime is indeed sufficient to describe gravity in the Newtonian limit, as long as the metric takes the form (\ref{4.20}).
+
+\subsection{Einstein's Equation}
+Just as Maxwell's equations govern how the electric and magnetic fields responds to charge and currents, Einstein's field equation governs how the metric responds to energy and momentum.
+
+The informal argument begins with the realization that we would like to find an equation that supersedes the Poisson equation for the Newtonian potential:
+\begin{equation}\label{4.22}
+    \nabla^2\Phi=4\pi G\rho
+\end{equation}
+We might therefore guess that our new equation will have $T_{\mu\nu}$ set proportional to some tensor, which is second-order in derivatives of the metric,
+\begin{equation*}
+    [\nabla^2 g]_{\mu\nu}\propto T_{\mu\nu}
+\end{equation*}
+but of course we want it to be completely tensorial.
+
+The first choice might be to act the d'Alambertian $\Box =\nabla^\mu \nabla_\mu$ on the metric $g_{\mu\nu}$, but this is automatically zero by metric compatibility. Fortunately, there is an obvious quantity which is not zero and is constructed from second derivatives (and first derivatives) of the metric: the Riemann tensor $\tensor{R}{^\rho_{\sigma\mu\nu}}$. It doesn't have the right number of indices, but we can contact it to from the Ricci tensor $R_{\mu\nu}$, which does (and is symmetric to boot).
+\begin{equation}\label{4.24}
+    R_{\mu\nu}=\kappa T_{\mu\nu}
+\end{equation}
+There is a problem, unfortunately, with conservation of energy. If we want to preserve
+\begin{equation*}
+    \nabla^\mu T_{\mu\nu}=0
+\end{equation*}
+bu (\ref{4.24}) we would have
+\begin{equation*}
+    \nabla^\mu R_{\mu\nu}=0
+\end{equation*}
+This is certainly not true in an arbitrary geometry; we have seen from the Bianchi identity that
+\begin{equation*}
+    \nabla^\mu R_{\mu\nu}=\frac{1}{2}\nabla_\nu R
+\end{equation*}
+But our proposed field equation implies that $R=\kappa g^{\mu\nu}T_{\mu\nu}=\kappa T$, so taking these together we have
+\begin{equation}\label{4.28}
+    \nabla_\mu T=0
+\end{equation}
+The covariant derivative of a scalar is just the partial derivative, so (\ref{4.28}) is telling is that $T$ is constant throughout spacetime. This is highly implausible, since $T=0$ in vacuum while $T\neq 0$ in matter. We have to try hard.
+
+Of course we don't have to try much harder, since we already know of a symmetric ($0,2$) tensor, constructed from the Ricii tensor, which is automatically conserved: the Einstein tensor
+\begin{equation*}
+    G_{\mu\nu}=R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}
+\end{equation*}
+which always obeys $\nabla^\mu G_{\mu\nu}=0$. We are therefore led to propose
+\begin{equation}\label{4.30}
+    G_{\mu\nu}=\kappa T_{\mu\nu}
+\end{equation}
+as a field equation for the metric. This equation satisfies all of the obvious requirements: the right-hand side is a covariant expression of the energy and momentum density in the form of a symmetric and conserved ($0,2$) tensor, while the left-hand side is a symmetric and conserved ($0,2$) tensor constructed from the metric and its first and second derivatives. \textcolor{purple}{Does this equation predict the Poisson equation for the gravitational potential in the Newtonian limit?}
+To answer this, note that contracting both sides of (\ref{4.30}) yields (in four dimensions)
+\begin{equation}\label{4.31}
+    R=-\kappa T
+\end{equation}
+and using this we can rewrite (\ref{4.30}) as
+\begin{equation}\label{4.32}
+    R_{\mu\nu}=\kappa \left(T_{\mu\nu}-\frac{1}{2}Tg_{\mu\nu}\right)
+\end{equation}
+his is the same equation, just written slightly different. We woulds like to see if it predicts Newtonian gravity in the weak-field, time-independent, slowly-moving-particles limit. We consider a perfect-fluid source of energy-momentum, for which
+\begin{equation*}
+    T_{\mu\nu}=(\rho +p)U_\mu U_\nu+ pg_{\mu\nu}
+\end{equation*}
+In fact for the Newtonian limit we many neglect the pressure; roughly speaking, the pressure of a body becomes important when its constituent particles are traveling at speeds close to that of light. So we are actually considering the energy-momentum tensor of \textcolor{purple}{dust}\footnote{The \textit{fluid} we are considering is some massive body, such as the Earth or the Sun.}:
+\begin{equation*}
+    T_{\mu\nu}=\rho U_\mu U_\nu
+\end{equation*}
+We will work in the fluid rest frame, in which
+\begin{equation*}
+    U^\mu = (U^0,0,0,0)
+\end{equation*}
+The timelike component can be fixed by appealing to the normalization condition $g_{\mu\nu}U^\mu U^\nu=-1$. In weak-field limit we write, in accordance with (\ref{4.12}) and (\ref{4.13}),
+\begin{align*}
+    g_{00}&=-1+h_{00}\\
+    g^{00}&=-1-h^{00}
+\end{align*}
+Then to first order in $h_{\mu\nu}$ we get
+\begin{equation*}
+    U^0=1+\frac{1}{2}h_{00}
+\end{equation*}
+So to our level of approximation, we can simply take $U^0=1$, and correspondingly $U_0=-1$. Then
+\begin{equation*}
+    T_{00}=\rho
+\end{equation*}
+and all other components vanish. In this limit the rest energy $\rho=T_{00}$ will be much larger than other terms in $T_{\mu\nu}$, so we want to focus on the $\mu=0, \nu=0$ components of (\ref{4.32}). The trace, to lowest nontrivial order, is
+\begin{equation*}
+    T=g^{00}T_{00}=-T_{00}=-\rho
+\end{equation*}
+We plug this into the $00$ component of our proposed gravitational field equation (\ref{4.32}), to get
+\begin{equation}\label{4.40}
+    R_{00}=\frac{1}{2}\kappa \rho
+\end{equation}
+This is an equation relating derivatives of the metric to the energy density. To find the explicit expression in terms of the metric, we need to evaluate $R_{00}=\tensor{R}{^\lambda_{0\lambda 0}}$. In fact we only need $\tensor{R}{^{i}_{0i0}}$, since $\tensor{R}{^0_{000}}=0$. We have
+\begin{equation*}
+    \tensor{R}{^{i}_{0j0}}=\partial_j\Gamma^{i}_{00}-\partial_0\Gamma^{i}_{j0}+\Gamma^{i}_{j\lambda}\Gamma^{\lambda}_{00}-\Gamma^{i}_{0\lambda}\Gamma^{\lambda}_{j0}
+\end{equation*}
+The second term here is a time derivative, which vanishes for static fields. The third and fourth terms are the form $(\Gamma)^2$, and since $\Gamma$ is first-order in the metric perturbation there contribute only at second order, and can be neglected. We are left with $ \tensor{R}{^{i}_{0j0}}=\partial_j\Gamma^{i}_{00}$. From this we get
+\begin{align*}
+    R_{00}&= \tensor{R}{^{i}_{0i0}}\\
+    &=\partial_i\left[\frac{1}{2}g^{i\lambda}(\partial_0g_{\lambda 0}+\partial_0g_{0 \lambda}-\partial_\lambda g_{00})\right]\\
+    &=-\frac{1}{2}\delta^{ij}\partial_i\partial_j h_{00}\\
+    &=-\frac{1}{2}\nabla^2 h_{00}
+\end{align*}
+Comparing to (\ref{4.40}), we see that the $00$ component of (\ref{4.30}) in the Newtonian limit predicts
+\begin{equation*}
+    \nabla^2 h_{00}=-\kappa\rho
+\end{equation*}
+Since (\ref{4.19}) sets $h_{00}=-2\Phi$, this is precisely the Poisson equation (\ref{4.22}), if we set $\kappa=8\pi G$.
+
+So our guess, (\ref{4.30}), seems to have worked out. With the normalization chosen so as to correctly recover the Newtonian limit, we can present \textbf{Einstein's equation} for general relativity:
+\begin{equation}\label{4.44}\marginnote{Einstein's field equation.}
+    \boxed{R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}=8\pi GT_{\mu\nu}}
+\end{equation}
+This tell us how the curvature of spacetime reacts to the presence of energy-momentum.
+
+It is sometimes useful to rewrite Einstein's equation in a slightly different form. Following (\ref{4.31}) and (\ref{4.32}), we can take the trace of (\ref{4.44}) to find that $R=-8\pi GT$. Plugging this in and moving the trace term to the right-hand side, we obtain
+\begin{equation}\label{4.45}
+    \boxed{R_{\mu\nu}=8\pi G\left(T_{\mu\nu}-\frac{1}{2}Tg_{\mu\nu}\right)}
+\end{equation}
+We will often be interested in the Einstein's equation in vacuum, where $T_{\mu\nu}=0$ (for example, outside a star or planet). Therefore the vacuum Einstein equation is simply
+\begin{equation}\label{4.46}\marginnote{Vacuum Einstein equation.}
+    \boxed{R_{\mu\nu}=0}
+\end{equation}
+This is both slightly less formidable, and of considerable physical usefulness.

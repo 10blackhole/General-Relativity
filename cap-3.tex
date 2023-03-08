@@ -1,0 +1,161 @@
+\section{Curvature}
+\subsection{Symmetries and Killing Vectors}
+General relativity is no different from other fields of physics, then, in being especially on solutions with symmetries.
+
+We think of a manifold $M$ as possessing a symmetry if the geometry is invariant under a certain transformation that maps $M$ to itself; that is. if the metric is the same, in some sense, from one point to another. Symmetries of the metric are called \textbf{isometries}. Sometimes the existence of isometries is obvious; consider, for example, four-dimensional Minkowski space,
+\begin{equation*}
+    ds^2=\eta_{\mu\nu}\dd x^\mu\dd x^\nu=-\dd t^2+\dd x^2+\dd y^2+\dd z^2
+\end{equation*}
+We know of several isometries of this space; these include translations ($x^\mu\to x^\mu +a^\mu$, with $a^\mu$ fixed) and Lorentz transformations ($x^\mu\to \tensor{\Lambda}{^\mu_\nu}x^\nu$, with $\tensor{\Lambda}{^\mu_\nu}$ a Lorentz transformation matrix). Whenever $\partial_{\sigma*}g_{\mu\nu}=0$ for some fixed $\sigma*$ (but for all $\mu$ and $\nu$), there will be a symmetry under translations along $x^{\sigma*}$:
+\begin{equation}\label{3.160}
+    \partial_{\sigma*}g_{\mu\nu}=0\, \Rightarrow\, x^{\sigma*}\to x^{\sigma*}+a^{\sigma*}\text{ is a symmetry}
+\end{equation}
+Isometries of the form (\ref{3.160}) have immediate consequences for the motion of test particles as described by the geodesic equation Recall that the geodesic equation can be written in terms of the four-momentum $p^\mu=mU^\mu$ (valid for timelike paths, at least) as
+\begin{equation*}
+    p^\lambda\nabla_\lambda p^\mu=0
+\end{equation*}
+By metric compatibility we are free to lower the index $\mu$, and then we may expand the covariant derivative to obtain
+\begin{equation*}
+    p^\lambda\partial_\lambda p_\mu-\Gamma^\sigma_{\lambda\mu}p^\lambda p_\sigma=0
+\end{equation*}
+The first term tell us how the momentum components change along the path,
+\begin{equation*}
+    p^\lambda\partial_\lambda p_\mu=m\dv{x^\lambda}{\tau}\partial_\lambda p_\mu=m\dv{p_\mu}{\tau}
+\end{equation*}
+while the second term is
+\begin{align*}
+    \Gamma^\sigma_{\lambda\mu}p^\lambda p_\sigma&=\frac{1}{2}g^{\sigma\nu}(\partial_\lambda g_{\mu\nu}+\partial_\mu g_{\nu\lambda}-\partial_\nu g_{\lambda\mu})p^\lambda p_\sigma\\
+    &=\frac{1}{2}(\partial_\lambda g_{\mu\nu}+\partial_\mu g_{\nu\lambda}-\partial_\nu g_{\lambda\mu})p^\lambda p^\nu\\
+    &=\frac{1}{2}(\partial_\mu g_{\nu\lambda})p^\lambda p^\nu
+\end{align*}
+where we have used the symmetry of $p^\lambda p^\nu$ to go form the second line to the third. So, without yet making any assumptions about symmetry, we see that the geodesic equation can be written as
+\begin{equation*}
+    m\dv{p_\mu}{\tau}=\frac{1}{2}(\partial_\mu g_{\nu\lambda})p^\lambda p^\nu
+\end{equation*}
+Therefore, if all of the metric coefficients are independent of the coordinates $x^{\sigma*}$, we find that this isometry implies that the momentum component $p_{\sigma*}$ is a conserved quantity of the motion:
+\begin{equation}\label{3.168}
+    \partial_{\sigma} g_{\mu\nu}=0\,\Rightarrow\, \dv{p_{\sigma*}}{\tau}=0
+\end{equation}
+The conserved quantities implied by isometries are extremely useful in studying the motion of test particles in curved backgrounds. But clearly a more systematic procedure is called for.
+
+We can develop such a procedure by casting the right-hand equation of (\ref{3.168}), expressing constancy of one of the components of the momentum, in a more manifestly covariant form. If $x^{\sigma*}$ is the coordinate which $G_{\mu\nu}$ is independent of, let us consider the vector $\partial_{\sigma*}$, which we label as $K$:
+\begin{equation*}
+    K=\partial_{\sigma*}
+\end{equation*}
+which is equivalent on component notation  to
+\begin{equation*}
+    K^\mu=(\partial_{\sigma*})^\mu=\delta^\mu_{\sigma*}
+\end{equation*}
+We say that the vector $K^\mu$ \textcolor{purple}{generates the isometry}; this means that the transformation under which the geometry is invariant is expressed infinitesimally as a motion in the direction of $K^\mu$. In terms of this vector, the noncovariant-looking quantity $p_{\sigma*}$ is simply
+\begin{equation*}
+    p_{\sigma*}=K^\nu p_{\nu}=K_\nu p^\nu
+\end{equation*}
+Meanwhile, the constancy of this (scalar) quantity along the path is equivalent to the statement that its directional derivative along the geodesic vanishes:
+\begin{equation*}
+    \dv{p_{\sigma*}}{\tau}=0\quad \leftrightarrow\quad p^\mu\nabla_\mu (K_\nu p^\nu)=0
+\end{equation*}
+Expanding the expression on the right, we obtain
+\begin{align*}
+    p^\mu\nabla_\mu (K_\nu p^\nu)&=p^\mu K_\nu\nabla_\nu p^\nu + p^\mu p^\nu \nabla_\nu K_\nu\\
+    &=p^\mu p^\nu\nabla_\mu K_\nu\\
+    &=p^\mu p^\nu \tensor{\nabla}{_{(\mu}}\tensor{K}{_{\nu)}} 
+\end{align*}
+where in the second line we have invoked the geodesic equation $(p^\mu\nabla_\mu p^\nu=0)$. In the third line we have used the fact that $p^\mu p^\nu$ is automatically symmetric in $\mu$ and $\nu$, so only the symmetric part of $\nabla_\mu K_\nu$ could possibly contribute. We therefore conclude that any vector $K_\mu$ that satisfies $\tensor{\nabla}{_{(\mu}}\tensor{K}{_{\nu)}}=0$ implies that $K_\nu p^\nu$ is conserved along a geodesic trajectory:
+\begin{equation}\label{3.174}\marginnote{Killing's equation.}
+    \boxed{\tensor{\nabla}{_{(\mu}}\tensor{K}{_{\nu)}}=0\quad \Rightarrow\quad p^\mu\nabla_\mu (K_\nu p^\nu)=0}
+\end{equation}
+The equation on the left is known as \textbf{Killing's equation}, and vector fields that satisfy it are known as \textbf{Killing vector fields} (or simply Killing vectors).
+
+Killing vector fields on a manifold are in one-to-one correspondence with continuous symmetries of the metric on that manifold. Every Killing vector implies the existence of conserved quantities associated with the geodesic motion. This can be understood physically: by definition the metric is unchanging along the direction of the Killing vector. Loosely speaking, therefore, a free particle will not feel any forces in this direction, and the component of its momentum in that direction will consequently be conserved. Generalizing to additional indices, a \textbf{Killing tensor} is a symmetric $l$-index tensor $K_{\nu_1 ... \nu_l}$ that satisfies the obvious generalization of Killing's equation, and correspondingly leads to conserved quantities by contracting with $l$ copies of the momentum:
+\begin{equation*}
+    \tensor{\nabla}{_{(\mu}}\tensor{K}{_{\nu_1 ...\nu_l)}}=0\quad \Rightarrow\quad p^\mu \nabla_\mu (K_{\nu_1 ...\nu_l}p^{\nu_1 ...\nu_l})=0
+\end{equation*}
+
+Derivatives of Killing vectors can be related to the Riemann tensor by
+\begin{equation*}
+    \nabla_\mu\nabla_\sigma K^\rho=\tensor{R}{^\rho_{\sigma\mu\nu}}K^\nu
+\end{equation*}
+Contracting this expression yields
+\begin{equation*}
+    \nabla_\mu \nabla_\sigma K^\mu=R_{\sigma\nu}K^\nu
+\end{equation*}
+There relations, along with the Bianchi identity and Killing's equation, suffice to show that the directional derivative of the Ricci scalar along a Killing vector field will vanish,
+\begin{equation*}
+    K^\lambda\nabla_\lambda R=0
+\end{equation*}
+
+The existence of a timelike Killing vector allows us to define a conserved energy for the entire spacetime. Given a Killing vector $K_\nu$ and a conserved energy-momentum tensor $T_{\mu\nu}$, we can construct a current
+\begin{equation*}
+    J_T^\mu=K_\nu T^{\mu\nu}
+\end{equation*}
+that is automatically conserved,
+\begin{align*}
+    \nabla_\mu J_T^\mu&=(\nabla_\mu K_\nu)T^{\mu\nu} + K_\nu (\nabla_\mu T^{\mu\nu})\\
+    &=0
+\end{align*}
+The first term vanishes by virtue of Killing's equation (since the symmetry of the upper indices serves to automatically symmetrize the lower indices), and the second term vanishes by conservation of $T_{\mu\nu}$.
+
+When there is a timelike Killing vector, we can write the metric in a form where it is independent of the timelike coordinate, and Noether's theorem implies a conserved energy. Similarly, spacelike Killing vectors may be used to construct conserved momenta (or angular momenta).
+
+\begin{tcolorbox}
+For example, in $\mathbb{R}^3$ with metric $ds^2=\dd x^2+\dd y^2+\dd z^2$, independence of the metric components with respect to $x, y$ and $z$ immediately yields three Killing vectors:
+\begin{align*}
+    X^\mu&=(1,0,0)\\
+    Y^\mu&=(0,1,0)\\
+    Z^\mu&=(0,0,1)
+\end{align*}
+These clearly represent the three translations. There are also three rotational symmetries in $\mathbb{R}^3$, which are not quite so simple. To find them, imagine first going to polar coordinates,
+\begin{align*}
+    x&=r\sin\theta\cos\phi\\
+    y&=r\sin\theta\sin\phi\\
+    z&=r\cos\theta
+\end{align*}
+where the metric takes the form
+\begin{equation*}
+    ds^2=\dd r^2+r^2\dd\theta^2+r^2\sin^2\theta\dd \phi^2
+\end{equation*}
+Now the metric (the \textit{same} metric, just in a different coordinate system) is manifestly independent of $\phi$. We therefore know that $R=\partial_\phi$ is a Killing vector- Transforming back to Cartesian coordinates, this becomes
+\begin{equation*}
+    R=-y\partial_x +x\partial_y
+\end{equation*}
+The Cartesian components $R^\mu$ are therefore $(-y,x,0)$. Since this represents a rotation about the $z$-axis, it is straightforward to guess the components of all three rotational Killing vectors:
+\begin{align}\label{3.186}
+    \nonumber R^\mu&=(-y,x,0)\\
+    \nonumber S^\mu&=(z,x,-x)\\
+     T^\mu&=(0,-z,y)
+\end{align}
+representing rotations about the $z, y$ and $x$-axes, respectively. You can check for yourself that these actually do solve Killing's equation.
+\end{tcolorbox}
+
+\begin{tcolorbox}
+This exercise leads directly to the Killing vectors for the two-sphere $S^2$ with metric
+\begin{equation*}
+    ds^2=\dd\theta^2+\sin^2\theta\dd\phi^2
+\end{equation*}
+The rotational Killing vectors all rotate such a sphere into itself, they also represent symmetries of $S^2$. To get explicit coordinate-basis representations for these vectors, we first transform the three-dimensional vectors (\ref{3.186}) to polar coordinates $x^{\mu'}=(r,\theta,\phi)$. A straightforward calculation reveals
+\begin{align}\label{3.188}
+    \nonumber R&=\partial_\phi\\
+    \nonumber S&=\cos\phi\partial_\theta - \cot\theta\sin\phi\partial_\phi\\
+     T&=-\sin\phi\partial_\theta - \cot\theta\cos\phi\partial_\phi
+\end{align}
+Notice that there are no components along $\partial_r$, which makes sense for a rotational isometry. Therefore the expressions (\ref{3.188}) for the three rotational Killing vectors in $\mathbb{R}^3$ are exactly the same as those of $S^2$ in spherical polar coordinates.
+\end{tcolorbox}
+
+\subsection{Maximally Symmetric Spaces}
+\textcolor{purple}{How symmetric can a space possibly be?} An example of a space with the highest possible degree of symmetry is $\mathbb{R}^n$ with the flat Euclidean metric. Consider the isometries of this space, which we know to be translations and rotations in $n$-dimensions, from the perspective of what they do in the neighborhood of some point $p$. The translations are those transformations that move the point; there are $n$ independent axes along which it can be moved, and hence $n$ total translations. The rotations, centered at $p$, ate those transformations that leave $p$ invariant; they can be thought of as moving one of the axes through $p$ into one of the others.  There are $n$ axes,and for each axis there are $n-1$ other axes into which it can be rotated, but we shouldn't count rotation of $y$ into $x$ as separated from a rotation of $x$ into $y$, so the total number of independent rotations is $\frac{1}{2}n(n-1)$. We therefore have
+\begin{equation*}
+    n+\frac{1}{2}n(n-1)=\frac{1}{2}n(n+1)
+\end{equation*}
+independent symmetries of $\mathbb{R}^n$. If the metric signature is not Euclidean, some of the rotations will actually be boosts, but again the counting will be the same. The number of isometries is, of course, the number of linearly Killing vector fields. We therefore refer to an $n$-dimensional manifold with $\frac{1}{2}n(n+1)$ Killing vectors as a \textbf{maximally symmetric space}.
+
+If a manifold is maximally symmetric, the curvature is the same everywhere and the same in every direction. We should be able to reconstruct the entire Riemann tensor of such a space from the Ricci scalar $R$; let's see how this works.
+
+The basic idea is simply that, since the geometry looks the same in all directions, the curvature tensor should look the same in all directions. If the Riemann tensor satisfies
+\begin{equation*}
+    R_{\rho\sigma\mu\nu}=\frac{R}{n(n-1)}(g_{\rho\mu}g_{\sigma\nu}-g_{\rho\nu}g_{\sigma\mu})
+\end{equation*}
+the metric will be maximally symmetric.
+
+Locally, then, a maximally symmetric space of given dimension and signature is  fully specified by $R$. The basic classification of such spaces is simply whether $R$ is positive, zero, or negative, since the magnitude of $R$ represents an overall scaling of the size of the space. For Euclidean signatures, the flat maximally symmetric spaces are \textcolor{purple}{planes} or appropriate higher-dimensional generalizations, while the positively curved ones are \textcolor{purple}{spheres}. Maximally symmetric Euclidean spaces of negative curvature are \textcolor{purple}{hyperboloids}, denoted $H^n$.
+
+We know that the maximally symmetric spacetime with $R=0$ is simply \textcolor{purple}{Minkowski} space. The positively curved maximally symmetric spacetime is called \textcolor{purple}{de Sitter} space, while that with negative curvature is imaginatively labeled \textcolor{purple}{anti-de Sitter} space.
