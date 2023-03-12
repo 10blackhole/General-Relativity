@@ -1,0 +1,144 @@
+\section{The Schwarzschild Solution}
+
+\subsection{The Schwarzschild Metric}
+The most obvious application of a theory of gravity is to a spherically symmetric gravitational field. Our first concern is with exterior solutions (empty space surrounding a gravitational body).
+
+In GR, the unique spherically symmetric vacuum solution is the \textbf{Schwarzschild metric}; it is second only to Minkowski space in the list of important spacetimes. In spherical coordinates $\{t,r\theta,\phi \}$, the metric is given by
+\begin{equation}\label{5.1}
+    \boxed{ds^2=-\left(1-\frac{2GM}{r}\right)\dd t^2+\left(1-\frac{2GM}{r}\right)^{-1}\dd r^2+r^2\dd \Omega^2}
+\end{equation}
+where $\dd\Omega^2$ is the metric on a unit two-sphere,
+\begin{equation*}
+    \dd\Omega^2=\dd\theta^2+\sin^2\theta\dd\phi^2
+\end{equation*}
+The constant $M$ is interpreted as the mass of the gravitating object. In this part we will derive the Schwarzschild metric by trial and error.
+
+Since, we are interested in the solution \textit{outside} a spherical body, we care about Einstein's equation in vacuum,
+\begin{equation*}
+    R_{\mu\nu}=0
+\end{equation*}
+Our hypothesized source is static (unevolving) and spherically symmetric, so we sill look for solutions that also have these properties. For now we will interpret \textcolor{purple}{static} to imply two conditions: that all metric components are independent of the time coordinate, and that there are no time-space cross terms ($\dd t\dd x^{i}+\dd x^{i}\dd t$) in the metric. The latter conditions makes sense if we imagine performing a time inversion $t\to -t$; the $\dd t^2$ term remains invariant, as do any $\dd x^{i}\dd x^j$ terms, while cross terms would not. To impose \textcolor{purple}{spherical symmetric}, we begin by writing the metric of Minkowski space in polar coordinates $x^\mu=(t,r,\theta,\phi)$:
+\begin{equation*}
+    ds^2_{\text{Minkowski}}=-\dd t^2+\dd r^2+r^2\dd \Omega^2
+\end{equation*}
+One requirement to preserve spherical symmetry is that we maintain the form of $\dd\Omega^2$; that is, if we want our spheres to be perfectly round, the coefficient of the $\dd\phi^2$ term should be $\sin^2\theta$ times that of the $\dd\theta^2$ term. But we are otherwise free to multiply all of the terms by separate coefficients, so long as they are only functions of the radial coordinate.
+\begin{equation}\label{5.5}
+    ds^2=-e^{2\alpha(r)}\dd t^2+e^{2\beta(r)}\dd r^2+e^{2\gamma(r)}r^2\dd\Omega^2
+\end{equation}
+We've expressed our functions as exponential so that the signature of the metric doesn't change.
+
+We can use our ability to change coordinates to make a slight simplification on the static, spherically-symmetric metric (\ref{5.5}), even before imposing Einstein's equation. Let is imagine defining a new coordinate $\Bar{r}$ via
+\begin{equation*}
+    \Bar{r}=e^{\gamma(r)}r
+\end{equation*}
+with an associated basis one-form
+\begin{equation*}
+    \dd\Bar{r}=e^\gamma\dd r+e^\gamma r\dd\gamma=\left(1+r\dv{\gamma}{r}\right)e^\gamma\dd r
+\end{equation*}
+In terms of this new variable, the metric (\ref{5.5}) becomes
+\begin{equation}\label{5.8}
+    ds^2=-e^{2\alpha(r)}\dd t^2+\left(1+r\dv{\gamma}{r}\right)^{-2}e^{2\beta(r)-2\gamma(r)}\dd\Bar{r}^2+\Bar{r}^2\dd\Omega^2
+\end{equation}
+where each function of $r$ is a function of $\Bar{r}$ in the obvious way. But now let us make the following relabelings:
+\begin{align}
+    \label{5.9}\Bar{r}&\to r\\
+    \label{5.10}\left(1+r\dv{\gamma}{r}\right)e^{2\beta(r)-2\gamma(r)}&\to e^{2\beta}
+\end{align}
+There is nothing to stop is from doing this, as they are simply labels, with no independent external definition. If you wish you can continue to use $\Bar{r}$, and set (\ref{5.10}) equal to $e^{2\Bar{\beta}}$, but we won't bother. Our metric (\ref{5.8}) becomes
+\begin{equation}\label{5.11}
+    ds^2=-e^{2\alpha(r)}\dd t^2+e^{2\beta(r)}\dd r^2+r^2\dd\Omega^2
+\end{equation}
+This looks exactly like (\ref{5.5}), except that the $e^{2\gamma}$ factor has disappeared. We have not set $e^{2\gamma}$ equal to one, which would be a statement about the geometry; we have simply chosen our radial coordinate such that this factor doesn't exist. Thus, (\ref{5.11}) is precisely as general as (\ref{5.5}).
+
+Let's now take this metric and use Einstein's equations to solve for the functions $\alpha(r)$ and $\beta(r)$. We begin by evaluating the Christoffel symbols are given by
+\begin{align*}
+    \Gamma_{tr}^t&=\partial_r\alpha & \Gamma_{tt}^r&=e^{2(\alpha-\beta)}\partial_r\alpha & \Gamma_{rr}^r&=\partial_r \beta\\
+    \Gamma_{r\theta}^\theta&=\frac{1}{r} & \Gamma_{\theta \theta}^r&=-re^{-2\beta} & \Gamma_{r\phi}^\phi &=\frac{1}{r}\\
+    \Gamma_{\phi\phi}^r&=-re^{-2\beta}\sin^2\theta & \Gamma_{\phi\phi}^\theta &=-\sin\theta\cos\theta & \Gamma_{\theta\phi}^\phi &=\frac{\cos\theta}{\sin\theta}
+\end{align*}
+Anything not written down explicitly is means to be zero, or related what is written by symmetries. From these we get the following nonvanishing components of the Riemann tensor:
+\begin{align*}
+    \tensor{R}{^t_{rtr}}&=\partial_r\alpha\partial_r\beta-\partial^2_r\alpha-(\partial_r\alpha)^2\\
+    \tensor{R}{^t_{\theta t \theta}}&=-re^{-2\beta}\partial_r\alpha\\
+    \tensor{R}{^t_{\phi t \phi}}&=-re^{-2\beta}\sin^2\theta\,\partial_r\alpha\\
+    \tensor{R}{^r_{\theta r \theta}}&=re^{-2\beta}\partial_r\beta\\
+    \tensor{R}{^r_{\phi r \phi}}&=re^{-2\beta}\sin^2\theta\,\partial_r\beta\\
+    \tensor{R}{^\theta_{\phi\theta\phi}}&=(1-e^{-2\beta})\sin^2\theta
+\end{align*}
+Taking the contraction as usual yields the Ricci tensor:
+\begin{align*}
+    R_{tt}&=e^{2(\alpha-\beta)}\left[\partial^2_r\alpha+(\partial_r\alpha)^2-\partial_r\alpha\partial_r\beta+\frac{2}{r}\partial_r\alpha\right]\\
+    R_{rr}&=-\partial^2_r\alpha-(\partial_r\alpha)^2+\partial_r\alpha\partial_r\beta+\frac{2}{r}\partial_r\beta\\
+    R_{\theta\theta}&=e^{-2\beta}[r(\partial_r\beta-\partial_r\alpha)-1]+1\\
+    R_{\phi\phi}&=\sin^2\theta R_{\theta\theta}
+\end{align*}
+and for future reference we calculate the curvature scalar,
+\begin{equation*}
+    R=-2e^{-2\beta}\left[\partial^2_r\alpha+(\partial_r\alpha)^2-\partial_r\alpha\partial_r\beta+\frac{2}{r}(\partial_r\alpha-\partial_r\beta)+\frac{1}{r^2}(1-e^{2\beta})\right]
+\end{equation*}
+
+With the Ricci tensor calculated, we would like to set it equal to zero. Since $R_{tt}$ and $R_{rr}$ vanish independently, we can write
+\begin{equation*}
+    0=e^{2(\beta-\alpha)}R_{tt}+R_{rr}=\frac{2}{r}(\partial_r\alpha+\partial_r\beta)
+\end{equation*}
+which implies $\alpha=-\beta +c$, where $c$ is some constant. We can set this constant equal to zero by rescaling our time cooridnate by $t\to e^{-c}t$, after which we have
+\begin{equation}\label{5.17}
+    \alpha=-\beta
+\end{equation}
+Next let us turn to $R_{\theta\theta}=0$, which now reads
+\begin{equation*}
+    e^{2\alpha}(2r\partial_r\alpha +1)=1
+\end{equation*}
+This is equivalent to
+\begin{equation*}
+    \partial_r(re^{2\alpha})=1
+\end{equation*}
+We can solve this to obtain
+\begin{equation}\label{5.20}
+    e^{2\alpha}=1-\frac{R_S}{r}
+\end{equation}
+where $R_S$ is some undetermined constant. With (\ref{5.17}) and (\ref{5.20}), our metric becomes
+\begin{equation*}
+    ds^2=-\left(1-\frac{R_S}{r}\right)\dd t^2+\left(1-\frac{R_S}{r}\right)^{-1}\dd r^2+r^2\dd\Omega^2
+\end{equation*}
+We now have no freedom left except for the single constant $R_S$, called the \textbf{Schwarzschild radius}, in terms of some physical parameter. Nothing could be simpler. In Section 4 we found that, in the weak-field limit, the $tt$ component of the metric around a point mass satisfies
+\begin{equation*}
+    g_{tt}=-\left(1-\frac{2GM}{r}\right)
+\end{equation*}
+The Schwarzschild metric should reduce to the weak-field case when $r\gg 2GM$, but for the $tt$ component the forms are already exactly the same; we need only identify
+\begin{equation*}
+    R_S=2GM
+\end{equation*}
+This can be thought of as the definition of the parameter $M$.
+
+Our final result is the Schwarzschild metric, (\ref{5.1}). We have shown that is is a static, spherically symmetric vacuum solution to Einstein's equation; $M$ functions as a parameter, which we happen to know can be interpreted as the conventional Newtonian mass that we would measure by studying orbits at large distances from the gravitating source. It won't simply be the sum of the masses of the constituents of whatever body is curving spacetime, since there will be a contribution from what we might think as the gravitational binding energy; however, in the weak field limit, the quantities will agree. Note that as $M\to 0$ we recover Minkowski space, which is to be expected. Note also that the metric becomes progressively Minkowskian as $r\to\infty$; this property is known as \textbf{asymptotic flatness}.
+
+
+
+
+
+
+
+
+
+\subsection{Birkhoff's Theorem}
+\textbf{Birkhoff's theorem} is the statement that the Schwarzschild metric is the \textcolor{purple}{unique} vacuum solution with spherical symmetry (and in particular, that there are no time-dependent solution of this form).
+
+\subsection{Singularities}
+From the form of (\ref{5.1}), the metric coefficients become at $r=0$ and $r=2GM$--an apparent sign that something is going wrong. The metric coefficients, of course, are coordinate-dependent quantities, and as such we should not make too much of their values; it is certainly possible to have a coordinate singularity that results from a breakdown of a specific coordinate system rather than the underlying manifold.
+
+The curvature is measured by the Riemann tensor, and it is hard to say when a tensor becomes infinite, since its components are coordinate-dependent. But from the curvature we can construct various scalar quantities, and since scalars are coordinate-independent it is meaningful to say that the become infinite.
+
+In the case of the Schwarzschild metric (\ref{5.1}), direct calculation reveals that
+\begin{equation*}
+    R^{\mu\nu\rho\sigma}R_{\mu\nu\rho\sigma}=\frac{48G^2M^2}{r^6}
+\end{equation*}
+This is enough to convince is that $r=0$ represents an honest singularity.
+
+The other trouble spot is $r=2GM$, the Schwarzschild radius. You could check that note of the curvature invariant blows up there. We therefore begin to think that it is actually not singular, and we have simply chosen a bad coordinate system. We sill soon see that in the case it is in fact possible, and the surface $r=2GM$ is very well-behaved (although interesting) in the Schwarzschild metric--it demarcates the event horizon of a black hole.
+
+The solution we derived is valid inly in vacuum, and we expect it to hold outside a spherical body such as a star. However, in the case of the Sun we are dealing with a body that extends to a radius of
+\begin{equation*}
+    R_\odot=10^6GM_\odot
+\end{equation*}
+Thus, $r=2GM_\odot$ is far inside the solar interior, where we do not expect the Schwarzschild metric to apply. In fact, realistic stellar interior solutions consist of matching the exterior Schwarzschild metric to an interior metric that is perfectly smooth at the origin. Nevertheless, there are objects for which the full Schwarzschild metric is required--black holes-- and therefore we will let our imaginations roam far outside the solar system in this part.

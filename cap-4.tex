@@ -1,4 +1,4 @@
-\section{Gravitation}
+\section{Gravitation}\label{sec:4}
 \subsection{Physics in Curves Spacetime}
 The physics of gravitation falls naturally into two peaces: how the gravitational field influence the behavior of matter, and how matter determines the gravitational field. In Newtonian gravity, this two elements consist of the expression for the acceleration of a body in a gravitational potential $\Phi$,
 \begin{equation}\label{4.1}
@@ -222,3 +222,74 @@ We will often be interested in the Einstein's equation in vacuum, where $T_{\mu\
     \boxed{R_{\mu\nu}=0}
 \end{equation}
 This is both slightly less formidable, and of considerable physical usefulness.
+
+\subsection{Lagrangian Formulation}
+An alternative route to Einstein's equation is through the principle of least action. We will assume that our metric has Lorentzian signature.
+
+Consider a field theory in which the dynamical variables are a set of fields $\Phi^{i}(x)$. The classical solutions to such theory will be those that are critical points of an action $S$, generally expressed as an integral over space of a Lagrange density $\mathcal{L}$
+\begin{equation*}
+    S=\int\mathcal{L}(\Phi^{i}, \nabla_\mu \Phi^{i})\dd^n x
+\end{equation*}
+Note that we are now imagining that the Lagrangian is a function of the fields and their covariant (rather than partial) derivatives. We typically write
+\begin{equation*}
+    \mathcal{L}=\sqrt{-g}\widehat{\mathcal{L}}
+\end{equation*}
+where $\widehat{\mathcal{L}}$ is indeed a scalar. The associated Euler-Lagrange equations make use of the scalar $\widehat{\mathcal{L}}$, and are otherwise like those in flat space, with covariant instead of partial derivatives:
+\begin{equation*}
+    \pdv{\widehat{\mathcal{L}}}{\Phi}-\nabla_\mu\left(\pdv{\widehat{\mathcal{L}}}{(\nabla_\mu \Phi)}\right)=0
+\end{equation*}
+In deriving these equations, we make use of Stoke's theorem ()
+\begin{equation*}
+    \int_\Sigma \nabla_\mu V^\mu \sqrt{|g|}\dd^nx=\int_{\partial\Sigma}n_\mu V^\mu\sqrt{|\gamma|}\dd^{n-1}x
+\end{equation*}
+and set the variation equal to zero at infinity (the boundary). Integration by parts therefore takes the form
+\begin{equation*}
+    \int A^\mu (\nabla_\mu B)\sqrt{-g}\dd^nx=-\int (\nabla_\mu A^\mu)B\sqrt{-g}\dd^nx+\text{ boundary terms}
+\end{equation*}
+For example, the curved-spacetime generalization of the action for a single fields $\phi$ consider in Section \ref{sec:1} would be
+\begin{equation*}
+    S_\phi=\int\left[-\frac{1}{2}g^{\mu\nu}(\nabla_\mu\phi)(\nabla_\nu\phi)-V(\phi)\right]\sqrt{-g}\dd^nx
+\end{equation*}
+which would lead to an equation of motion
+\begin{equation*}
+    \Box\phi-\dv{V}{\phi}=0
+\end{equation*}
+where the covariant d'Alambertian is
+\begin{equation*}
+    \Box=\nabla^\mu \nabla_\mu=g^{\mu\nu}\nabla_\mu \nabla_\nu
+\end{equation*}
+Of course, the covariant derivatives are equivalent to partial derivatives when acting on scalars, but it is wise to use the $\nabla_\mu$ notation still; you never know when you might integrate by parts and suddenly be acting on a vector.
+
+With that as warm-up, we turn to the construction of a action for general relativity. Our dynamical variable is now the metric $g_{\mu\nu}$
+
+
+\subsection{The Cosmological Constant}
+A characteristic feature of general relativity is that the source for the gravitational field is the entire energy-momentum tensor. In nongravitational physics, only \textit{changes} in energy from one state to another are measurable; the normalization of the energy is arbitrary. In gravitation, the actual value of energy matters, not just the difference between states.
+
+This behavior opens up the possibility of \textbf{vacuum energy}: an energy density characteristic of empty space. It will still be possible to have a nonzero energy density if the associated energy-momentum tensor is Lorentz invariant in locally inertial coordinates. Lorentz invariance implies that the corresponding energy-momentum tensor should be proportional to the metric,
+\begin{equation*}
+    T_{\hat{\mu}\hat{\nu}}^{(\text{vac})}=-\rho_{\text{vac}} \eta_{\hat{\mu}\hat{\nu}}
+\end{equation*}
+since $ \eta_{\hat{\mu}\hat{\nu}}$ is the only Lorentz invariant ($0,2$) tensor. This generalized straightforwardly from inertial coordinates to arbitrary coordinates as
+\begin{equation*}
+    T_{\mu\nu}^{\text{vac}}=-\rho_{\text{vac}}g_{\mu\nu}
+\end{equation*}
+Comparing to the perfect-fluid energy-momentum tensor $T_{\mu\nu}=(\rho +p)U_\mu U_\nu +pg_{\mu\nu}$, we find that the vacuum looks like a perfect fluid with an isotropic pressure opposite in sign to the energy density,
+\begin{equation*}
+    p_{\text{vac}}=-\rho_{\text{vac}}
+\end{equation*}
+The energy density should be constant throughout spacetime, since a gradient would not be Lorentz invariant.
+
+If we decompose the energy-momentum tensor into a matter piece $T_{\mu\nu}^{\text{M}}T_{\mu\nu}^{\text{M}}$ and a vacuum piece $T_{\mu\nu}^{\text{vac}}=-\rho_{\text{vac}}g_{\mu\nu}$, Einstein's equation is
+\begin{equation}\label{4.99}
+    R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}=8\pi G\left(T_{\mu\nu}^{\text{vac}}-\rho_{\text{vac}}g_{\mu\nu}\right)
+\end{equation}
+Soon after inventing GR, Einstein tried to find a static cosmological model, since that was that astronomical observations of the time seemed to imply. The result was the Einstein static universe. In order for this static cosmology to solve the field equation with an ordinary matter source, it was necessary to add a new term called the \textbf{cosmological constant}, $\Lambda$. which enters as
+\begin{equation*}
+      R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}+\Lambda g_{\mu\nu}=8\pi GT_{\mu\nu}
+\end{equation*}
+From comparison with (\ref{4.99}), we see that the cosmological constant is precisely equivalent to introducing a vacuum energy density
+\begin{equation*}
+    \rho_{\text{vac}}=\frac{\Lambda}{8\pi G}
+\end{equation*}
+\textcolor{purple}{The terms \textit{cosmological constant} and \textit{vacuum energy} are essentially interchangeable.}

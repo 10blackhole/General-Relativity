@@ -1,4 +1,28 @@
-\section{Curvature}
+\section{Curvature}\label{sec:3}
+
+\subsection{Overview}
+All the ways in which curvature manifests itself rely on something called a \textit{connection}, which give us a way of relating vectors in the tangent spaces of nearby points. There is a unique connection that we can construct from the metric, and it is encapsulated in an object called the \textit{Christoffel symbol}, given by
+\begin{equation*}
+    \Gamma^\lambda_{\mu\nu}=\frac{1}{2}g^{\lambda\sigma}(\partial_\mu g_{\nu\sigma}+\partial_\nu g_{\sigma\mu}-\partial_\sigma g_{\mu\nu})
+\end{equation*}
+The notation makes $\Gamma^\lambda_{\mu\nu}$ look like a tensor, but in fact it is not; this is why we call it an object or symbol. The fundamental use of a connection is to take a \textit{covariant derivative} $\nabla_\mu$ (a generalization of the partial derivative); the covariant derivative of a vector field $V^\nu$ is given by
+\begin{equation*}
+    \nabla_{\mu}V^\nu=\partial_\mu V^\nu +\Gamma^\nu_{\mu\sigma} V^\sigma
+\end{equation*}
+and covariant derivatives of other sorts of tensor are given by similar expressions. The connection also appears in the definition of \textit{geodesics} (a generalization of the notion of straight line). A parameterized curve $x^\mu(\lambda)$ is a geodesic if it obeys
+\begin{equation*}
+    \dv[2]{x^\mu}{\lambda}+\Gamma^\mu_{\rho\sigma}\dv{x^\rho}{\lambda}\dv{x^\sigma}{\lambda}=0
+\end{equation*}
+know as the geodesic equation.
+
+Finally. the technical expression of curvature is contained in the Riemann tensor, a ($1,3$) tensor obtained from the connection by
+\begin{equation*}
+    \tensor{R}{^\rho_{\sigma\mu\nu}}=\partial_\mu\Gamma^\rho_{\nu\sigma}-\partial_\nu\Gamma^\rho_{\mu\sigma}+ \Gamma^\rho_{\mu\lambda}\Gamma^\lambda_{\nu\sigma} -\Gamma^\rho_{\nu\lambda}\Gamma^\lambda_{\mu\sigma}
+\end{equation*}
+Everything we want to know about the curvature of a manifold is given to s¡us by the Riemann tensor; it will vanish if and only if the metric is perfectly flat.
+
+
+
 \subsection{Symmetries and Killing Vectors}
 General relativity is no different from other fields of physics, then, in being especially on solutions with symmetries.
 
